@@ -46,7 +46,7 @@ class _CadastroOngState extends State<CadastroOng> {
                   left: 10 + kDefaultPadding,
                   right: kDefaultPadding,
                   bottom: kDefaultPadding,
-                  top: 80 + kDefaultPadding),
+                  top: 120 + kDefaultPadding),
                   child: Row(
                     children: <Widget>[  
                       Flexible(
@@ -70,7 +70,7 @@ class _CadastroOngState extends State<CadastroOng> {
                   left: 10 + kDefaultPadding,
                   right: kDefaultPadding,
                   bottom: kDefaultPadding,
-                  top: 115 + kDefaultPadding,
+                  top: 160 + kDefaultPadding,
                 ),
                 child: Column(
                   children: <Widget>[
@@ -88,16 +88,18 @@ class _CadastroOngState extends State<CadastroOng> {
                 ),
               ),
               Container(
-                  padding: EdgeInsets.only(
-                  left: 10 +kDefaultPadding,
+                height: 160,
+                padding: EdgeInsets.only(
+                  left: kDefaultPadding,
                   right: kDefaultPadding,
-                  bottom: 70 + kDefaultPadding,
-                  top: 70 + kDefaultPadding,
+                  bottom: kDefaultPadding,
+                  top: kDefaultPadding + 35,
                 ),
-                  child: Row(children: <Widget> [
+                child: Row(
+                  children: <Widget>[
                     Image.asset("assets/images/appicon.png")
                   ],
-                )
+                ),
               ),
               Positioned(
                 bottom: 10,
