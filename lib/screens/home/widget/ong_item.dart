@@ -1,5 +1,6 @@
 import 'package:doe_facil/constants/constants.dart';
 import 'package:doe_facil/models/ong.dart';
+import 'package:doe_facil/screens/details/ong_details.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -35,7 +36,7 @@ class OngItem extends StatelessWidget {
             ),
           ),
           Container(
-            height: 150,
+            height: 160,
             width: 200,
             child: Column(
               children: [
@@ -46,14 +47,14 @@ class OngItem extends StatelessWidget {
                         padding: EdgeInsets.only(
                           top: kDefaultPadding - 12,
                           left: kDefaultPadding - 8,
-                          bottom: kDefaultPadding - 12,
+                          bottom: kDefaultPadding - 15,
                         ),
                         child: Row(
                           children: <Widget>[
                             Text(
                               ong.ongName,
                               style: TextStyle(
-                                fontSize: 20.0,
+                                fontSize: 22.0,
                                 fontWeight: FontWeight.bold,
                                 color: kFont,
                               ),
@@ -66,7 +67,6 @@ class OngItem extends StatelessWidget {
                         height: 60,
                         padding: EdgeInsets.only(
                           left: kDefaultPadding - 8,
-                          bottom: kDefaultPadding - 10,
                         ),
                         child: Row(
                           children: <Widget>[
@@ -76,7 +76,7 @@ class OngItem extends StatelessWidget {
                                 maxLines: 3,
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
-                                  fontSize: 14.0,
+                                  fontSize: 16.0,
                                   color: kFont,
                                 ),
                               ),
@@ -89,13 +89,14 @@ class OngItem extends StatelessWidget {
                 ),
                 Container(
                   height: 50,
-                  width: 180,
+                  width: 170,
+                  padding: EdgeInsets.only(
+                    top: kDefaultPadding - 8,
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        width: 80,
-                        height: 40,
                         child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               primary: Colors.white,
@@ -105,17 +106,18 @@ class OngItem extends StatelessWidget {
                                 side: BorderSide(color: kFontLight),
                               ),
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => OngDetails()));
+                            },
                             child: Text('Ver +',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black,
-                                  fontSize: 16,
+                                  fontSize: 18,
                                 ))),
                       ),
                       Container(
-                        width: 80,
-                        height: 40,
                         child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               primary: kButtonDonatePrimary,
@@ -129,7 +131,7 @@ class OngItem extends StatelessWidget {
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
-                                  fontSize: 16,
+                                  fontSize: 18,
                                 ))),
                       ),
                     ],

@@ -12,14 +12,9 @@ class _CadastroOngState extends State<CadastroOng> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    
-    return Column(
-      children: <Widget> [
+    return Stack(
+      children: <Widget>[
         Container(
-          height: size.height * 0.7,
-          child: Stack(
-            children: <Widget>[
-              Container(
                 padding: EdgeInsets.only(
                   left: 100 + kDefaultPadding,
                   right: kDefaultPadding,
@@ -40,9 +35,9 @@ class _CadastroOngState extends State<CadastroOng> {
                     )
                   ],
                 ),        
-                ),
-              Container(
-                  padding: EdgeInsets.only(
+              ),
+            Container(
+              padding: EdgeInsets.only(
                   left: 10 + kDefaultPadding,
                   right: kDefaultPadding,
                   bottom: kDefaultPadding,
@@ -58,14 +53,13 @@ class _CadastroOngState extends State<CadastroOng> {
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
                           ),
-                      
-                      ),
                         ),
-                      ),            
-                    ],
-                  ),
-                  ),
-               Container(
+                      ),
+                    ),            
+                  ],
+                ),
+            ),
+            Container(
                 padding: EdgeInsets.only(
                   left: 10 + kDefaultPadding,
                   right: kDefaultPadding,
@@ -101,20 +95,87 @@ class _CadastroOngState extends State<CadastroOng> {
                   ],
                 ),
               ),
-              Positioned(
-                bottom: 10,
-                left: 0,
-                right: 0,
-                child: Container(
-                  margin: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                  padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                  height: 50,
+              Container(
+                margin: const EdgeInsets.only(left: 20.0, top: 300.0, right: 20.0),
+                height: 50.0,
+                width: 334,
+                decoration: new BoxDecoration(
+                color: Colors.white,
+                borderRadius: new BorderRadius.all(new Radius.circular(15)
+                )
+                    /*decoration: InputDecoration(
+                      hintText: "Digite seu e-mail",
+                      hintStyle: TextStyle(
+                        color: kFontLight,
+                    ),
+                    enabledBorder: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                  ),*/
                 ),
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
+                child: new Directionality(
+
+              textDirection: TextDirection.ltr,
+              child: new TextField(
+                controller: null,
+                autofocus: false,
+
+                style:
+                    new TextStyle(fontSize: 14.0, color: Color(0xFFbdc6cf)),
+                decoration: new InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: 'E-mail',
+                  contentPadding: const EdgeInsets.only(
+                      left: 14.0, bottom: 8.0, top: 8.0),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.white),
+                    borderRadius: new BorderRadius.circular(15),
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.white),
+                    borderRadius: new BorderRadius.circular(25.7),
+                  ),
+                ),
+              ))),
+              Container(
+                //child: Center(
+                  child: Container(
+                    padding: EdgeInsets.only(top: 500),
+                    //alignment: Alignment.bottomCenter,
+                    child: Stack(
+                      children: <Widget>[
+                        ElevatedButton(onPressed: (){
+                          print('Hi there');
+                        },
+                        style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.zero,
+                          alignment: Alignment.bottomLeft,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)
+                          )
+                        ),
+                        child: Ink(
+                          
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(colors: [Colors.blue, Colors.green]),
+                            borderRadius: BorderRadius.circular(20)
+                          ),
+                          child: Container(
+                            width: 335,
+                            height: 56,
+                            alignment: Alignment.center,
+                            child: Text(
+                              'Seguinte',
+                              style: TextStyle(fontSize: 17),
+                            ),
+                          ),
+                        ))
+                      ],
+                    ),
+                  )
+                ),
+              //)
+            ]
+    );          
   }
 }
