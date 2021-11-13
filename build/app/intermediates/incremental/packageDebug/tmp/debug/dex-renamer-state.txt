@@ -1,4 +1,4 @@
-#Mon Nov 08 20:32:10 BRT 2021
+#Fri Nov 12 20:44:12 BRT 2021
 base.0=C\:\\Users\\ana.araujo.de.sousa\\Downloads\\Comida na mesa\\doe-facil\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

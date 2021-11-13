@@ -9,6 +9,7 @@ class CadastroOng extends StatefulWidget {
 }
 
 class _CadastroOngState extends State<CadastroOng> {
+  bool _showPassword = false;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -112,7 +113,7 @@ class _CadastroOngState extends State<CadastroOng> {
                     focusedBorder: InputBorder.none,
                   ),*/
                 ),
-                child: new Directionality(
+            child: new Directionality(
 
               textDirection: TextDirection.ltr,
               child: new TextField(
@@ -124,7 +125,7 @@ class _CadastroOngState extends State<CadastroOng> {
                 decoration: new InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
-                  hintText: 'E-mail',
+                  hintText: 'Digite seu E-mail',
                   contentPadding: const EdgeInsets.only(
                       left: 14.0, bottom: 8.0, top: 8.0),
                   focusedBorder: OutlineInputBorder(
@@ -136,7 +137,115 @@ class _CadastroOngState extends State<CadastroOng> {
                     borderRadius: new BorderRadius.circular(25.7),
                   ),
                 ),
-              ))),
+              )
+            ),
+          ),
+           Container(
+                margin: const EdgeInsets.only(left: 20.0, top: 370.0, right: 20.0),
+                height: 50.0,
+                width: 334,
+                decoration: new BoxDecoration(
+                color: Colors.white,
+                borderRadius: new BorderRadius.all(new Radius.circular(15)
+                )
+                    /*decoration: InputDecoration(
+                      hintText: "Digite seu e-mail",
+                      hintStyle: TextStyle(
+                        color: kFontLight,
+                    ),
+                    enabledBorder: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                  ),*/
+                ),
+            child: new Directionality(
+
+              textDirection: TextDirection.ltr,
+              child: new TextField(
+                controller: null,
+                autofocus: false,
+
+                style:
+                    new TextStyle(fontSize: 14.0, color: Color(0xFFbdc6cf)),
+                decoration: new InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: 'Digite sua senha',
+                  contentPadding: const EdgeInsets.only(
+                      left: 14.0, bottom: 8.0, top: 8.0),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.white),
+                    borderRadius: new BorderRadius.circular(15),
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.white),
+                    borderRadius: new BorderRadius.circular(25.7),
+                  ),
+                  suffixIcon: GestureDetector(
+                    child: Icon(_showPassword == false ? Icons.visibility_off : Icons.visibility, color: Colors.grey),
+                    onTap: (){
+                      setState(() {
+                        _showPassword = !_showPassword;
+                      });
+                    },
+                  ), 
+                ),
+                obscureText: _showPassword == false ? true : false,
+              )
+            ),
+          ),
+          Container(
+                margin: const EdgeInsets.only(left: 20.0, top: 440.0, right: 20.0),
+                height: 50.0,
+                width: 334,
+                decoration: new BoxDecoration(
+                color: Colors.white,
+                borderRadius: new BorderRadius.all(new Radius.circular(15)
+                )
+                    /*decoration: InputDecoration(
+                      hintText: "Digite seu e-mail",
+                      hintStyle: TextStyle(
+                        color: kFontLight,
+                    ),
+                    enabledBorder: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                  ),*/
+                ),
+            child: new Directionality(
+
+              textDirection: TextDirection.ltr,
+              child: new TextField(
+                controller: null,
+                autofocus: false,
+
+                style:
+                    new TextStyle(fontSize: 14.0, color: Color(0xFFbdc6cf)),
+                decoration: new InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: 'Digite sua senha novamente',
+                  contentPadding: const EdgeInsets.only(
+                      left: 14.0, bottom: 8.0, top: 8.0),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.white),
+                    borderRadius: new BorderRadius.circular(15),
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.white),
+                    borderRadius: new BorderRadius.circular(25.7),
+                  ),
+                  suffixIcon: GestureDetector(
+                    child: Icon(_showPassword == false ? Icons.visibility_off : Icons.visibility, color: Colors.grey),
+                    onTap: (){
+                      setState(() {
+                        _showPassword = !_showPassword;
+                      });
+                    },
+                  ), 
+                ),
+                obscureText: _showPassword == false ? true : false,
+              )
+            ),
+          ),
               Container(
                 //child: Center(
                   child: Container(
