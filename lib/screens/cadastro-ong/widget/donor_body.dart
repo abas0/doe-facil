@@ -9,10 +9,21 @@ class CadastroOng extends StatefulWidget {
 }
 
 class _CadastroOngState extends State<CadastroOng> {
-  bool _showPassword = false;
+  bool _showPassword1 = false;
+  bool _showPassword2 = false;
+  bool isChecked1 = true;
+  bool isChecked2 = false;
+  String password = '';
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    Color getColor(Set<MaterialState> states) {
+      const Set<MaterialState> interactiveStates = <MaterialState>{
+        MaterialState.pressed,
+        MaterialState.hovered,
+        MaterialState.focused,
+      };
+      return Colors.black;
+    }
     return Stack(
       children: <Widget>[
         Container(
@@ -22,7 +33,7 @@ class _CadastroOngState extends State<CadastroOng> {
                 ),
                 //height: size.height * 4,
                 //width: 50.0,
-                height: 250.0,
+                height: 295.0,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -39,10 +50,8 @@ class _CadastroOngState extends State<CadastroOng> {
               ),
             Container(
               padding: EdgeInsets.only(
-                  left: 10 + kDefaultPadding,
-                  right: kDefaultPadding,
-                  bottom: kDefaultPadding,
-                  top: 120 + kDefaultPadding),
+                  left: 52,
+                  top: 184),
                   child: Row(
                     children: <Widget>[  
                       Flexible(
@@ -62,10 +71,8 @@ class _CadastroOngState extends State<CadastroOng> {
             ),
             Container(
                 padding: EdgeInsets.only(
-                  left: 10 + kDefaultPadding,
-                  right: kDefaultPadding,
-                  bottom: kDefaultPadding,
-                  top: 160 + kDefaultPadding,
+                  left: 52,
+                  top: 228,
                 ),
                 child: Column(
                   children: <Widget>[
@@ -73,7 +80,7 @@ class _CadastroOngState extends State<CadastroOng> {
                       child: Text(
                         'Seja bem-vindo, preencha seus dados para começar',
                         style: TextStyle(
-                          fontSize: 10.0, 
+                          fontSize: 14.0, 
                           fontWeight: FontWeight.normal,
                           color: Colors.black,
                         ),
@@ -85,10 +92,8 @@ class _CadastroOngState extends State<CadastroOng> {
               Container(
                 height: 160,
                 padding: EdgeInsets.only(
-                  left: kDefaultPadding,
-                  right: kDefaultPadding,
-                  bottom: kDefaultPadding,
-                  top: kDefaultPadding + 35,
+                  left: 40,
+                  top: 72,
                 ),
                 child: Row(
                   children: <Widget>[
@@ -97,22 +102,14 @@ class _CadastroOngState extends State<CadastroOng> {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.only(left: 20.0, top: 300.0, right: 20.0),
+                margin: const EdgeInsets.only(left: 50.0, top: 320.0, right: 30.0),
                 height: 50.0,
                 width: 334,
                 decoration: new BoxDecoration(
                 color: Colors.white,
                 borderRadius: new BorderRadius.all(new Radius.circular(15)
                 )
-                    /*decoration: InputDecoration(
-                      hintText: "Digite seu e-mail",
-                      hintStyle: TextStyle(
-                        color: kFontLight,
-                    ),
-                    enabledBorder: InputBorder.none,
-                    focusedBorder: InputBorder.none,
-                  ),*/
-                ),
+              ),
             child: new Directionality(
 
               textDirection: TextDirection.ltr,
@@ -127,7 +124,7 @@ class _CadastroOngState extends State<CadastroOng> {
                   fillColor: Colors.white,
                   hintText: 'Digite seu E-mail',
                   contentPadding: const EdgeInsets.only(
-                      left: 14.0, bottom: 8.0, top: 8.0),
+                      left: 23.0, bottom: 16.0, top: 15.0),
                   focusedBorder: OutlineInputBorder(
                     borderSide: new BorderSide(color: Colors.white),
                     borderRadius: new BorderRadius.circular(15),
@@ -141,22 +138,14 @@ class _CadastroOngState extends State<CadastroOng> {
             ),
           ),
            Container(
-                margin: const EdgeInsets.only(left: 20.0, top: 370.0, right: 20.0),
+                margin: const EdgeInsets.only(left: 50.0, top: 380.0, right: 30.0),
                 height: 50.0,
                 width: 334,
                 decoration: new BoxDecoration(
                 color: Colors.white,
                 borderRadius: new BorderRadius.all(new Radius.circular(15)
                 )
-                    /*decoration: InputDecoration(
-                      hintText: "Digite seu e-mail",
-                      hintStyle: TextStyle(
-                        color: kFontLight,
-                    ),
-                    enabledBorder: InputBorder.none,
-                    focusedBorder: InputBorder.none,
-                  ),*/
-                ),
+              ),
             child: new Directionality(
 
               textDirection: TextDirection.ltr,
@@ -171,7 +160,7 @@ class _CadastroOngState extends State<CadastroOng> {
                   fillColor: Colors.white,
                   hintText: 'Digite sua senha',
                   contentPadding: const EdgeInsets.only(
-                      left: 14.0, bottom: 8.0, top: 8.0),
+                      left: 23.0, bottom: 16.0, top: 15.0),
                   focusedBorder: OutlineInputBorder(
                     borderSide: new BorderSide(color: Colors.white),
                     borderRadius: new BorderRadius.circular(15),
@@ -181,35 +170,30 @@ class _CadastroOngState extends State<CadastroOng> {
                     borderRadius: new BorderRadius.circular(25.7),
                   ),
                   suffixIcon: GestureDetector(
-                    child: Icon(_showPassword == false ? Icons.visibility_off : Icons.visibility, color: Colors.grey),
+                    child: Icon(_showPassword1 == false ? Icons.visibility_off : Icons.visibility, color: Colors.grey),
                     onTap: (){
                       setState(() {
-                        _showPassword = !_showPassword;
+                        _showPassword1 = !_showPassword1;
                       });
                     },
                   ), 
                 ),
-                obscureText: _showPassword == false ? true : false,
+                obscureText: _showPassword1 == false ? true : false,
+                onChanged: (value){
+                  password = value;
+                }
               )
             ),
           ),
           Container(
-                margin: const EdgeInsets.only(left: 20.0, top: 440.0, right: 20.0),
+                margin: const EdgeInsets.only(left: 50.0, top: 440.0, right: 30.0),
                 height: 50.0,
                 width: 334,
                 decoration: new BoxDecoration(
                 color: Colors.white,
                 borderRadius: new BorderRadius.all(new Radius.circular(15)
                 )
-                    /*decoration: InputDecoration(
-                      hintText: "Digite seu e-mail",
-                      hintStyle: TextStyle(
-                        color: kFontLight,
-                    ),
-                    enabledBorder: InputBorder.none,
-                    focusedBorder: InputBorder.none,
-                  ),*/
-                ),
+              ),
             child: new Directionality(
 
               textDirection: TextDirection.ltr,
@@ -224,7 +208,7 @@ class _CadastroOngState extends State<CadastroOng> {
                   fillColor: Colors.white,
                   hintText: 'Digite sua senha novamente',
                   contentPadding: const EdgeInsets.only(
-                      left: 14.0, bottom: 8.0, top: 8.0),
+                      left: 23.0, bottom: 16.0, top: 15.0),
                   focusedBorder: OutlineInputBorder(
                     borderSide: new BorderSide(color: Colors.white),
                     borderRadius: new BorderRadius.circular(15),
@@ -234,23 +218,30 @@ class _CadastroOngState extends State<CadastroOng> {
                     borderRadius: new BorderRadius.circular(25.7),
                   ),
                   suffixIcon: GestureDetector(
-                    child: Icon(_showPassword == false ? Icons.visibility_off : Icons.visibility, color: Colors.grey),
+                    child: Icon(_showPassword2 == false ? Icons.visibility_off : Icons.visibility, color: Colors.grey),
                     onTap: (){
                       setState(() {
-                        _showPassword = !_showPassword;
+                        _showPassword2 = !_showPassword2;
                       });
                     },
                   ), 
                 ),
-                obscureText: _showPassword == false ? true : false,
+                obscureText: _showPassword2 == false ? true : false,
+                onChanged: (value){
+                  if(value == password)
+                  {
+                    print('Senhas dão match!');
+                  }
+                  else{
+                    print('Senhas não dão match');
+                  }
+                }
               )
             ),
           ),
               Container(
-                //child: Center(
                   child: Container(
-                    padding: EdgeInsets.only(top: 500),
-                    //alignment: Alignment.bottomCenter,
+                    padding: EdgeInsets.only(bottom: 40, top: 600, left: 40, right: 40),
                     child: Stack(
                       children: <Widget>[
                         ElevatedButton(onPressed: (){
@@ -283,8 +274,91 @@ class _CadastroOngState extends State<CadastroOng> {
                     ),
                   )
                 ),
-              //)
-            ]
+                Container(
+                  padding: EdgeInsets.only(
+                    top: 550,
+                    left: 60
+                  ),
+                  child: Checkbox(
+                    checkColor: Colors.white,
+                    fillColor: MaterialStateProperty.resolveWith(getColor),
+                    value: isChecked1,
+                    onChanged: (bool? value) {
+                    setState(() {
+                      isChecked1 = value!;
+                      isChecked2 = !isChecked2;
+                    });
+                  },
+                )
+            ),
+            Container(
+                  padding: EdgeInsets.only(
+                    top: 550,
+                    left: 99
+                  ),
+                  child: new Directionality(
+                    textDirection: TextDirection.ltr,
+                    child: new TextField(
+                      controller: null,
+                      autofocus: false,
+                  style: new TextStyle(fontSize: 12.0, color: Colors.black),
+                  decoration: new InputDecoration(
+                    hintText: 'Doador',
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: new BorderSide(color: Colors.white),
+                      borderRadius: new BorderRadius.circular(15),
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.white),
+                    borderRadius: new BorderRadius.circular(25.7),
+                  ),
+                ),
+              )
+            ),
+          ),
+        Container(
+                  padding: EdgeInsets.only(
+                    top: 550,
+                    left: 235
+                  ),
+                  child: Checkbox(
+                    checkColor: Colors.white,
+                    fillColor: MaterialStateProperty.resolveWith(getColor),
+                    value: isChecked2,
+                    onChanged: (bool? value) {
+                    setState(() {
+                      isChecked2 = value!;
+                      isChecked1 = !isChecked1;
+                    });
+                  },
+                )
+            ),
+            Container(
+                  padding: EdgeInsets.only(
+                    top: 550,
+                    left: 271
+                  ),
+                  child: new Directionality(
+                    textDirection: TextDirection.ltr,
+                    child: new TextField(
+                      controller: null,
+                      autofocus: false,
+                  style: new TextStyle(fontSize: 12.0, color: Colors.black),
+                  decoration: new InputDecoration(
+                    hintText: 'ONG',
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: new BorderSide(color: Colors.white),
+                      borderRadius: new BorderRadius.circular(15),
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.white),
+                    borderRadius: new BorderRadius.circular(25.7),
+                  ),
+                ),
+              )
+            ),
+          ),
+        ]
     );          
   }
 }
