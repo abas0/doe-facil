@@ -16,99 +16,18 @@ class _CadastroOngState extends State<CadastroOng> {
   @override
   Widget build(BuildContext context) {
     Color getColor(Set<MaterialState> states) {
-     /* const Set<MaterialState> interactiveStates = <MaterialState>{
-        MaterialState.pressed,
-        MaterialState.hovered,
-        MaterialState.focused,
-      };*/
       return Colors.black;
     }
     return Stack(
       children: <Widget>[
-        // Container(
-        //         padding: EdgeInsets.only(
-        //           left: 100 + kDefaultPadding,
-        //           right: kDefaultPadding,
-        //         ),
-        //         //height: size.height * 4,
-        //         //width: 50.0,
-        //         height: 295.0,
-        //         decoration: BoxDecoration(
-        //           color: Colors.white,
-        //           borderRadius: BorderRadius.only(
-        //             bottomRight: Radius.circular(30),
-        //             bottomLeft: Radius.circular(30)),
-        //           boxShadow: <BoxShadow>[
-        //           BoxShadow(
-        //               color: Colors.black54,
-        //               blurRadius: 15.0,
-        //               offset: Offset(0.0, 0.75)
-        //             )
-        //           ],
-        //         ),        
-        //       ),
-        //     Container(
-        //       padding: EdgeInsets.only(
-        //           left: 52,
-        //           top: 184),
-        //           child: Row(
-        //             children: <Widget>[  
-        //               Flexible(
-        //                 child : Container(
-        //                   child: Text(
-        //                   'Crie uma conta',
-        //                   style: TextStyle(
-        //                     fontSize: 24.0, 
-        //                     fontWeight: FontWeight.bold,
-        //                     color: Colors.black,
-        //                   ),
-        //                 ),
-        //               ),
-        //             ),            
-        //           ],
-        //         ),
-        //     ),
-        //     Container(
-        //         padding: EdgeInsets.only(
-        //           left: 52,
-        //           top: 228,
-        //         ),
-        //         child: Column(
-        //           children: <Widget>[
-        //             Flexible(
-        //               child: Text(
-        //                 'Seja bem-vindo, preencha seus dados para começar',
-        //                 style: TextStyle(
-        //                   fontSize: 14.0, 
-        //                   fontWeight: FontWeight.normal,
-        //                   color: Colors.black,
-        //                 ),
-        //               ),
-        //             ),
-        //           ],
-        //         ),
-        //       ),
-        //       Container(
-        //         height: 160,
-        //         padding: EdgeInsets.only(
-        //           left: 40,
-        //           top: 72,
-        //         ),
-        //         child: Row(
-        //           children: <Widget>[
-        //             Image.asset("assets/images/appicon.png")
-        //           ],
-        //         ),
-        //       ),
               Container(
                 margin: const EdgeInsets.only(left: 50.0, top: 50.0, right: 30.0),
                 height: 50.0,
                 width: 334,
                 decoration: new BoxDecoration(
-                color: Colors.white,
-                borderRadius: new BorderRadius.all(new Radius.circular(15)
-                )
-              ),
+                  color: Colors.white,
+                  borderRadius: new BorderRadius.all(new Radius.circular(15))
+                ),
             child: new Directionality(
 
               textDirection: TextDirection.ltr,
@@ -238,41 +157,6 @@ class _CadastroOngState extends State<CadastroOng> {
               )
             ),
           ),
-              Container(
-                  child: Container(
-                    padding: EdgeInsets.only(bottom: 40, top: 340, left: 40, right: 40),
-                    child: Stack(
-                      children: <Widget>[
-                        ElevatedButton(onPressed: (){
-                          print('Hi there');
-                        },
-                        style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.zero,
-                          alignment: Alignment.bottomLeft,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20)
-                          )
-                        ),
-                        child: Ink(
-                          
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(colors: [Colors.blue, Colors.green]),
-                            borderRadius: BorderRadius.circular(20)
-                          ),
-                          child: Container(
-                            width: 335,
-                            height: 56,
-                            alignment: Alignment.center,
-                            child: Text(
-                              'Seguinte',
-                              style: TextStyle(fontSize: 17),
-                            ),
-                          ),
-                        ))
-                      ],
-                    ),
-                  )
-                ),
                 Container(
                   padding: EdgeInsets.only(
                     top: 270,

@@ -1,4 +1,7 @@
+import 'package:doe_facil/models/botaoCriarConta.dart';
 import 'package:doe_facil/screens/cadastro-ong/widget/cadastro-ong-tela01.dart';
+import 'package:doe_facil/screens/cadastro-ong/widget/cadastro-ong-tela02.dart';
+import 'package:doe_facil/screens/cadastro-ong/widget/ong_botao-criar-conta.dart';
 import 'package:doe_facil/screens/cadastro-ong/widget/ong_cabecalho.dart';
 import 'package:flutter/material.dart';
 import 'package:doe_facil/models/cadastroOng.dart';
@@ -19,7 +22,13 @@ class DonorCadastroOng extends StatelessWidget {
                 'Seja bem-vindo. Preencha seus dados para começar'
               )
             ),
-            CadastroOng()
+            //CadastroOng(),
+            CadastroOng02(),
+            OngBotaoCriarConta(
+              BotaoCriarConta(
+                'Segunte'
+              )
+            )
           ]
         ),
       )
