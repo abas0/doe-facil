@@ -1,5 +1,5 @@
-import 'package:doe_facil/constants/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class CadastroOng02 extends StatefulWidget {
   const CadastroOng02({ Key? key }) : super(key: key);
@@ -9,6 +9,8 @@ class CadastroOng02 extends StatefulWidget {
 }
 
 class _CadastroOng02State extends State<CadastroOng02> {
+  final maskFormatter = new MaskTextInputFormatter(mask: '+## (##) #####-####', filter: { "#": RegExp(r'[0-9]') }); 
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -17,7 +19,7 @@ class _CadastroOng02State extends State<CadastroOng02> {
           children: <Widget>[
           Container(
             padding: EdgeInsets.only(
-              left: 134,
+              left: 114,
               right: 134,
               top: 10
             ),
@@ -71,22 +73,121 @@ class _CadastroOng02State extends State<CadastroOng02> {
             )
             ], 
           ),          
-            ),
-          ]
-        )
-      ]
-       
-     /*children: <Widget>[
+        ),
+        Container(
+          margin: const EdgeInsets.only(left: 50.0, top: 30.0, right: 30.0),
+          height: 50.0,
+          width: 334,
+          decoration: new BoxDecoration(
+            color: Colors.white,
+            borderRadius: new BorderRadius.all(new Radius.circular(15)
+            )
+          ),
+          child: new Directionality(
 
-        IconButton(
-          icon: const Icon(Icons.camera_alt),
-         // tooltip: 'Increase volume by 10',
-          onPressed: () {
-            setState(() {
-            });
-          }, 
-        )
-      ]*/
+              textDirection: TextDirection.ltr,
+              child: new TextField(
+                controller: null,
+                autofocus: false,
+
+                style:
+                    new TextStyle(fontSize: 14.0, color: Color(0xFFbdc6cf)),
+                decoration: new InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: 'Digite seu nome',
+                  contentPadding: const EdgeInsets.only(
+                      left: 23.0, bottom: 16.0, top: 15.0),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.white),
+                    borderRadius: new BorderRadius.circular(15),
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.white),
+                    borderRadius: new BorderRadius.circular(25.7),
+                  ),
+                ),
+              )
+            ),
+          ),
+          Container(
+          margin: const EdgeInsets.only(left: 50.0, top: 20.0, right: 30.0),
+          height: 50.0,
+          width: 334,
+          decoration: new BoxDecoration(
+            color: Colors.white,
+            borderRadius: new BorderRadius.all(new Radius.circular(15)
+            )
+          ),
+          child: new Directionality(
+
+              textDirection: TextDirection.ltr,
+              child: new TextField(
+                controller: null,
+                autofocus: false,
+
+                style:
+                    new TextStyle(fontSize: 14.0, color: Color(0xFFbdc6cf)),
+                decoration: new InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: 'Digite o endereço',
+                  contentPadding: const EdgeInsets.only(
+                      left: 23.0, bottom: 16.0, top: 15.0),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.white),
+                    borderRadius: new BorderRadius.circular(15),
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.white),
+                    borderRadius: new BorderRadius.circular(25.7),
+                  ),
+                ),
+              )
+            ),
+          ),
+          Container(
+          margin: const EdgeInsets.only(left: 50.0, top: 20.0, right: 30.0),
+          height: 50.0,
+          width: 334,
+          decoration: new BoxDecoration(
+            color: Colors.white,
+            borderRadius: new BorderRadius.all(new Radius.circular(15)
+            )
+          ),
+          child: new Directionality(
+
+              textDirection: TextDirection.ltr,
+              child: new TextField(
+                //maxLength: 11,
+                controller: null,
+                autofocus: false,
+                keyboardType: TextInputType.number,
+                style:
+                  new TextStyle(fontSize: 14.0, color: Color(0xFFbdc6cf)),
+                decoration: new InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  //alignLabelWithHint: Alignment.center,
+                  hintText: 'Digite o numero para contato',
+                  contentPadding: const EdgeInsets.only(
+                      left: 23.0, bottom: 5, top: 15.0),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.white),
+                    borderRadius: new BorderRadius.circular(15),
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.white),
+                    borderRadius: new BorderRadius.circular(25.7),
+                  ),
+                ),
+                inputFormatters: [maskFormatter],
+              )
+            ),
+          ),
+        ]
+      ),     
+      ]
     );
   }
 }

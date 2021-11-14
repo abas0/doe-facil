@@ -18,8 +18,10 @@ class DonorCadastroOng extends StatelessWidget {
           children: [
             Cabecalho(
               TituloCadastroOng(
-                'Crie uma conta',
-                'Seja bem-vindo. Preencha seus dados para começar'
+               /* 'Crie uma conta',
+                'Seja bem-vindo. Preencha seus dados para começar'*/
+                'ONG',
+                'Preencha os campos abaixo com os dados da ONG'
               )
             ),
             //CadastroOng(),
