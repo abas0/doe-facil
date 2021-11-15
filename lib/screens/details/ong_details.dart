@@ -1,3 +1,4 @@
+import 'package:doe_facil/constants/constants.dart';
 import 'package:doe_facil/models/ong.dart';
 import 'package:doe_facil/screens/details/widget/ong_banner.dart';
 import 'package:doe_facil/screens/details/widget/ong_description.dart';
@@ -19,9 +20,13 @@ class OngDetails extends StatelessWidget {
                 'Amigos do Bem',
                 'Existem muitas variações disponíveis de passagens de Lorem Ipsum, mas a maioria sofreu algum tipo de alteração, seja por inserção de passagens com humor',
                 'assets/images/amigos.png',
-                '(81)99347-4343', 
+                '(81)99347-4343',
                 'ong@gmail.com',
-                'www.site.com.br',
+                'www.google.com',
+                '23232323233',
+                'Itau',
+                '12312313',
+                '1231231'
               ),
             ),
             OngDescription(
@@ -29,14 +34,37 @@ class OngDetails extends StatelessWidget {
                 'Amigos do Bem',
                 'Existem muitas variações disponíveis de passagens de Lorem Ipsum, mas a maioria sofreu algum tipo de alteração, seja por inserção de passagens com humor',
                 'assets/images/amigos.png',
-                '(81)99347-4343', 
+                '(81)99347-4343',
                 'ong@gmail.com',
                 'www.google.com',
+                '23232323233',
+                'Itau',
+                '12312313',
+                '1231231'
               ),
             ),
           ],
         ),
       ),
+      bottomNavigationBar: _buildBottomNavigationBar(),
+    );
+  }
+  BottomNavigationBar _buildBottomNavigationBar() {
+    return BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: kBackgroundColor,
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
+      items: [
+        BottomNavigationBarItem(
+          label: 'home',
+          icon: Image.asset('assets/icons/home.png', width: 25),
+        ),
+        BottomNavigationBarItem(
+          label: 'user',
+          icon: Image.asset('assets/icons/user.png', width: 25),
+        ),
+      ],
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:doe_facil/constants/constants.dart';
 import 'package:doe_facil/models/ong.dart';
+import 'package:doe_facil/screens/donate/donate.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -42,7 +43,10 @@ class OngBanner extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => DonateDetails()));
+                },
                 child: Text(
                   'Doar',
                   style: TextStyle(

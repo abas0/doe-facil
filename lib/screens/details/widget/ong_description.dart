@@ -1,7 +1,6 @@
 import 'package:doe_facil/constants/constants.dart';
 import 'package:doe_facil/models/ong.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class OngDescription extends StatelessWidget {
@@ -36,9 +35,9 @@ class OngDescription extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
                       Container(
                         padding: EdgeInsets.only(
                           top: kDefaultPadding - 15,
@@ -74,9 +73,7 @@ class OngDescription extends StatelessWidget {
                           ],
                         ),
                       ),
-                    ]
-                  )
-                ),
+                    ])),
                 Container(
                   padding: EdgeInsets.only(
                     bottom: kDefaultPadding - 15,
@@ -103,19 +100,18 @@ class OngDescription extends StatelessWidget {
                           bottom: kDefaultPadding - 15,
                         ),
                         child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.phone,
-                            size: 35,
-                          ),
-                          Text(
-                            
-                            ong.ongPhone,
-                            style: TextStyle(
-                              fontSize: 18,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.phone,
+                              size: 35,
                             ),
-                          ),
+                            Text(
+                              ong.ongPhone,
+                              style: TextStyle(
+                                fontSize: 18,
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -159,9 +155,6 @@ class OngDescription extends StatelessWidget {
                                   fontSize: 18,
                                 ),
                               ),
-                              onTap: () {
-                                ong.ongSite;
-                              },
                             ),
                           ],
                         ),

@@ -1,12 +1,26 @@
 import 'package:doe_facil/constants/constants.dart';
 import 'package:doe_facil/models/ong.dart';
 import 'package:doe_facil/screens/details/ong_details.dart';
+import 'package:doe_facil/screens/donate/donate.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class OngItem extends StatelessWidget {
   final Ong ong;
   OngItem(this.ong);
+
+  Future<List> getOngs() async {
+    var url = Uri.parse('http://localhost:8080/api/ong/list');
+    var response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      return jsonDecode(utf8.decode(response.bodyBytes));
+    } else {
+      throw Exception('Erro ao carregar dados do Servidor');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -126,7 +140,10 @@ class OngItem extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => DonateDetails()));
+                            },
                             child: Text('Doar',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,

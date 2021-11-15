@@ -23,7 +23,6 @@ class TopBar extends StatelessWidget {
                       fit: BoxFit.fitWidth,
                       image: AssetImage("assets/images/top.png")),
                 ),
-               
               ),
               Container(
                 padding: EdgeInsets.only(
