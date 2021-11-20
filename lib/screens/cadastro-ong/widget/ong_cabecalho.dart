@@ -8,12 +8,13 @@ class Cabecalho extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
-        children: [
+        children: <Widget>[
           Container(
             padding: EdgeInsets.only(
               top: 30
             ),
             height: 270.0,
+            width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
@@ -28,50 +29,46 @@ class Cabecalho extends StatelessWidget {
                 ],
               ), 
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                child: Container(
-                  height: 160,
                   padding: EdgeInsets.only(
-                  left: 40,
+                    left: 39
+                  ),
+                  child: Image.asset("assets/images/appicon.png"),
                 ),
-                child: Row(
-                  children: <Widget>[
-                    Image.asset("assets/images/appicon.png")
-                  ],
-                ),
-                ),       
-              ),
-              Container(
-                padding: EdgeInsets.only(
-                left: 52,
-                //top: 184
-                ),
-                child: Row(
-                  children: <Widget>[  
-                  Flexible(
-                    child : Container(
-                      child: Text(
-                        cadastroOng.titulo,
-                        style: TextStyle(
-                          fontSize: 24.0, 
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                  ),            
-                ],
-              ),
-            ),
-            Container(
-                padding: EdgeInsets.only(
-                  left: 20,
-                  top: 13,
-                ),
+                Container(               
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                      Text(
+                    Column(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(
+                            left: 52,
+                            top: 16
+                          ),
+                          child: Text(
+                            cadastroOng.titulo,
+                            style: TextStyle(
+                              fontSize: 24.0, 
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+                          )
+                        )          
+                    ]
+                  ),
+                  Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(
+                            left: 52,
+                            top: 14
+                        ),
+                        child: Text(
                         cadastroOng.descricao,
                         style: TextStyle(
                           fontSize: 14.0, 
@@ -79,14 +76,17 @@ class Cabecalho extends StatelessWidget {
                           color: Colors.black,
                         ),
                       ),
-                  ],
-                ),
-              )
-            ]
-          )  
-        ),
-      ]
-    )
+                    )
+                    ]
+                  )
+                    ]
+                  ),                   
+              ),       
+          ]
+        )
+      )
+    ]
+  )
   );
   }
 }

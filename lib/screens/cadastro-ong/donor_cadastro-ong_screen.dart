@@ -1,6 +1,7 @@
 import 'package:doe_facil/models/botaoCriarConta.dart';
 import 'package:doe_facil/screens/cadastro-ong/widget/cadastro-ong-tela01.dart';
 import 'package:doe_facil/screens/cadastro-ong/widget/cadastro-ong-tela02.dart';
+import 'package:doe_facil/screens/cadastro-ong/widget/cadastro-ong-tela03.dart';
 import 'package:doe_facil/screens/cadastro-ong/widget/ong_botao-criar-conta.dart';
 import 'package:doe_facil/screens/cadastro-ong/widget/ong_cabecalho.dart';
 import 'package:flutter/material.dart';
@@ -21,11 +22,13 @@ class DonorCadastroOng extends StatelessWidget {
                /* 'Crie uma conta',
                 'Seja bem-vindo. Preencha seus dados para começar'*/
                 'ONG',
-                'Preencha os campos abaixo com os dados da ONG'
+                'Conte-nos um pouco sobre sua ONG'
+                //'Preencha os campos abaixo com os dados da ONG'
               )
             ),
             //CadastroOng(),
-            CadastroOng02(),
+            //CadastroOng02(),
+            CadastroOng03(),
             OngBotaoCriarConta(
               BotaoCriarConta(
                 'Segunte'
