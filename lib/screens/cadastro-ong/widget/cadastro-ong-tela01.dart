@@ -34,7 +34,15 @@ class _CadastroOngState extends State<CadastroOng> {
               child: new TextField(
                 controller: null,
                 autofocus: false,
-
+                keyboardType: TextInputType.emailAddress,
+                autofillHints: [AutofillHints.email],
+                onChanged: (value) {
+                RegExp regex = new RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
+                if (!regex.hasMatch(value))
+                  print('Insira um e-mail válido');
+                else
+                  print('Email valido');
+                },
                 style:
                     new TextStyle(fontSize: 14.0, color: Color(0xFFbdc6cf)),
                 decoration: new InputDecoration(
