@@ -125,7 +125,6 @@ class _CadastroOng02State extends State<CadastroOng02> {
               child: new TextField(
                 controller: null,
                 autofocus: false,
-
                 style:
                     new TextStyle(fontSize: 14.0, color: Color(0xFFbdc6cf)),
                 decoration: new InputDecoration(

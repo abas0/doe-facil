@@ -2,7 +2,7 @@
 import 'package:doe_facil/constants/constants.dart';
 import 'package:doe_facil/screens/cadastro-ong/donor_cadastro-ong_screen.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_masked_text/flutter_masked_text.dart';
 void main() {
   runApp(DoeFacilApp());
 }

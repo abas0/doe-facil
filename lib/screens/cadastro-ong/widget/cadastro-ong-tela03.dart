@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:easy_mask/easy_mask.dart';
+
 
 class CadastroOng03 extends StatefulWidget {
   const CadastroOng03({ Key? key }) : super(key: key);
@@ -9,8 +12,10 @@ class CadastroOng03 extends StatefulWidget {
 }
 
 class _CadastroOng03State extends State<CadastroOng03> {
-  final maskFormatter = new MaskTextInputFormatter(mask: '+## (##) #####-####', filter: { "#": RegExp(r'^[a-zA-Z0-9_]') });
-  
+ var controller = new MoneyMaskedTextController(decimalSeparator: '.', thousandSeparator: ',');
+ final agency = new MaskTextInputFormatter(mask: "####-##", filter: { "#": RegExp(r'[0-9]') });
+ final account = new MaskTextInputFormatter(mask: "['#####-#', '######-#', '#######-#', '########-#', '#########-#', '###########-#']", filter: { "#": RegExp(r'[0-9]') });
+   
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -26,9 +31,8 @@ class _CadastroOng03State extends State<CadastroOng03> {
                 borderRadius: new BorderRadius.all(new Radius.circular(15)
               ),             
             ),
-            child: new Directionality(
-              textDirection: TextDirection.ltr,
-              child: new TextField(
+            child:(
+              TextField(
                 controller: null,
                 autofocus: false,
                 minLines: 1,
@@ -65,9 +69,9 @@ class _CadastroOng03State extends State<CadastroOng03> {
                 borderRadius: new BorderRadius.all(new Radius.circular(15)
               )
             ),
-            child: new Directionality(
-              textDirection: TextDirection.ltr,
-              child: new TextField(
+            child:(
+              //textDirection: TextDirection.ltr,
+              TextField(
                 controller: null,
                 autofocus: false,
                 onChanged: (value)
@@ -107,14 +111,29 @@ class _CadastroOng03State extends State<CadastroOng03> {
                 borderRadius: new BorderRadius.all(new Radius.circular(15)
               )
             ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(left: 50.0, top: 20.0, right: 30.0),
-              height: 50.0,
-              width: 334,
-              decoration: new BoxDecoration(
-                color: Colors.white,
-                borderRadius: new BorderRadius.all(new Radius.circular(15)
+            child:(
+              TextField(
+                controller: controller, 
+                keyboardType: TextInputType.number,
+                autofocus: false,
+                style:
+                  new TextStyle(fontSize: 14.0, color: Color(0xFFbdc6cf)),
+                decoration: new InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: 'Digite o valor do PIX',
+                  contentPadding: const EdgeInsets.only(
+                      left: 23.0, bottom: 5, top: 15.0),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.white),
+                    borderRadius: new BorderRadius.circular(15),
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.white),
+                    borderRadius: new BorderRadius.circular(25.7),
+                  ),
+                ),
+                 //inputFormatters: [controller],
               )
             ),
             ),
@@ -125,6 +144,111 @@ class _CadastroOng03State extends State<CadastroOng03> {
               decoration: new BoxDecoration(
                 color: Colors.white,
                 borderRadius: new BorderRadius.all(new Radius.circular(15)
+              )
+            ),
+            child: new Directionality(
+
+              textDirection: TextDirection.ltr,
+              child: new TextField(
+                controller: null,
+                autofocus: false,
+                
+                style:
+                    new TextStyle(fontSize: 14.0, color: Color(0xFFbdc6cf)),
+                decoration: new InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: 'Digite o banco',
+                  contentPadding: const EdgeInsets.only(
+                      left: 23.0, bottom: 16.0, top: 15.0),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.white),
+                    borderRadius: new BorderRadius.circular(15),
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.white),
+                    borderRadius: new BorderRadius.circular(25.7),
+                  ),
+                ),
+              )
+            ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 50.0, top: 20.0, right: 30.0),
+              height: 50.0,
+              width: 334,
+              decoration: new BoxDecoration(
+                color: Colors.white,
+                borderRadius: new BorderRadius.all(new Radius.circular(15)
+              )
+            ),
+            child: new Directionality(
+
+              textDirection: TextDirection.ltr,
+              child: new TextField(
+                controller: null,
+                autofocus: false,
+                keyboardType: TextInputType.number,
+                style:
+                    new TextStyle(fontSize: 14.0, color: Color(0xFFbdc6cf)),
+                decoration: new InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: 'Digite o número da agência',
+                  contentPadding: const EdgeInsets.only(
+                      left: 23.0, bottom: 16.0, top: 15.0),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.white),
+                    borderRadius: new BorderRadius.circular(15),
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.white),
+                    borderRadius: new BorderRadius.circular(25.7),
+                  ),
+                ),
+                inputFormatters: [agency], 
+              )
+            ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 50.0, top: 20.0, right: 30.0),
+              height: 50.0,
+              width: 334,
+              decoration: new BoxDecoration(
+                color: Colors.white,
+                borderRadius: new BorderRadius.all(new Radius.circular(15)
+              )
+            ),
+            child: new Directionality(
+
+              textDirection: TextDirection.ltr,
+              child: new TextField(
+                controller: null,
+                autofocus: false,
+                keyboardType: TextInputType.number,
+                style:
+                    new TextStyle(fontSize: 14.0, color: Color(0xFFbdc6cf)),
+                decoration: new InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: 'Digite o número da conta bancária',
+                  contentPadding: const EdgeInsets.only(
+                      left: 23.0, bottom: 16.0, top: 15.0),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.white),
+                    borderRadius: new BorderRadius.circular(15),
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.white),
+                    borderRadius: new BorderRadius.circular(25.7),
+                  ),
+                ),
+                inputFormatters: [
+                TextInputMask(
+                  mask: ['99999-9', '999999-9', '9999999-9', '99999999-9', '999999999-9', '9999999999-9'],
+                  reverse: false)
+                ],
+                //inputFormatters: [agency], 
               )
             ),
             )
