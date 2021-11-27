@@ -19,7 +19,7 @@ class ObridadaTopBar extends StatelessWidget {
                   right: kDefaultPadding,
                   //top: 10,
                 ),
-                height: size.height * 0.8,
+                height: size.height * 0.3,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                       fit: BoxFit.fitWidth,
@@ -73,6 +73,48 @@ class ObridadaTopBar extends StatelessWidget {
                   children: <Widget>[
                     Image.asset("assets/images/appicon.png")
                   ],
+                ),
+              ),
+              Positioned(
+                bottom: 0,
+                left: 0,
+                right: 0,
+                child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: kBackgroundColor,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(0, 10),
+                        blurRadius: 50,
+                        color: kPrimaryLight.withOpacity(0.23),
+                      ),
+                    ],
+                  ),
+            child: Container(
+                padding: EdgeInsets.only(
+                  left: 30,
+                  right: kDefaultPadding,
+                  top: 15,
+                ),
+                child: Column(
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        Text(
+                          'ONG',
+                          style: TextStyle(
+                            fontSize: 17.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey[900],
+                          ),
+                        ),
+                      ]
+                    ),
+                  ]
+                )
+                ),
                 ),
               ),
             ],

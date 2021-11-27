@@ -11,10 +11,8 @@ class ObrigadoCadastro extends StatelessWidget {
       return Scaffold(
        body: Stack(
         children: <Widget>[
-          // The containers in the background and scrollable
          ObrigadoBody(),
-         // This container will work as Overlay
-         //getOverlayWidget()
+         ObridadaTopBar(),
         ],
       ),
       bottomNavigationBar: _buildBottomNavigationBar()
