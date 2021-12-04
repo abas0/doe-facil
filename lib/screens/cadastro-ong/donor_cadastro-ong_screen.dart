@@ -11,29 +11,59 @@ class DonorCadastroOng extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appBar: Cabecalho(),
       body: SingleChildScrollView(
         child: Column(
-          //crossAxisAlignment: CrossAxisAlignment.start,
-          //mainAxisSize: MainAxisSize.min,
           children: [
             Cabecalho(
               TituloCadastroOng(
-               /* 'Crie uma conta',
-                'Seja bem-vindo. Preencha seus dados para começar'*/
-                'ONG',
-                'Conte-nos um pouco sobre sua ONG'
-                //'Preencha os campos abaixo com os dados da ONG'
+                'Crie uma conta',
+                'Seja bem-vindo. Preencha seus dados para começar'
               )
             ),
-            //CadastroOng(),
-            //CadastroOng02(),
-            CadastroOng03(),
-            OngBotaoCriarConta(
-              BotaoCriarConta(
-                'Segunte'
+            CadastroOng(),
+          ]
+        ),
+      )
+    );
+  }
+}
+
+class DonorCadastroOng02 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      //appBar: Cabecalho(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Cabecalho(
+              TituloCadastroOng(
+                'ONG',
+                'Conte-nos um pouco sobre sua ONG'
               )
-            )
+            ),
+            CadastroOng02(),
+          ]
+        ),
+      )
+    );
+  }
+}
+
+class DonorCadastroOng03 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Cabecalho(
+              TituloCadastroOng(
+                'ONG',
+                'Preencha os campos abaixo com os dados da ONG'
+              )
+            ),
+            CadastroOng03(),
           ]
         ),
       )

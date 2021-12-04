@@ -21,7 +21,7 @@ class DoeFacilApp extends StatelessWidget {
         textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: ObrigadoCadastro(),
+      home: DonorCadastroOng(),
     );
   }
 }

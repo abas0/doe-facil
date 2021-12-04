@@ -1,6 +1,9 @@
 import 'package:doe_facil/models/botaoCriarConta.dart';
 import 'package:flutter/material.dart';
 
+import '../donor_cadastro-ong_screen.dart';
+import 'cadastro-ong-tela02.dart';
+
 class OngBotaoCriarConta extends StatelessWidget {
   final BotaoCriarConta btnSeguinte;
   OngBotaoCriarConta(this.btnSeguinte);
@@ -12,7 +15,8 @@ class OngBotaoCriarConta extends StatelessWidget {
           child: Stack(
             children: <Widget>[
               ElevatedButton(onPressed: (){
-                print('Hi there');
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => DonorCadastroOng02()));
               },
               style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.zero,
@@ -31,7 +35,7 @@ class OngBotaoCriarConta extends StatelessWidget {
                   height: 56,
                   alignment: Alignment.center,
                   child: Text(
-                    'Seguinte',
+                    btnSeguinte.tituloBotao,
                     style: TextStyle(fontSize: 17),
                   ),
                 ),

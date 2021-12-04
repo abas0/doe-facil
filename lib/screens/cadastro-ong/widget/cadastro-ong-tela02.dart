@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
+import '../donor_cadastro-ong_screen.dart';
+
 class CadastroOng02 extends StatefulWidget {
   const CadastroOng02({ Key? key }) : super(key: key);
 
@@ -184,6 +186,41 @@ class _CadastroOng02State extends State<CadastroOng02> {
               )
             ),
           ),
+        Container(
+          padding: EdgeInsets.only(bottom: 40, top: 20, left: 40, right: 40),
+            child: Stack(
+              children: <Widget>[
+                ElevatedButton(onPressed: (){
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => DonorCadastroOng03()));
+                },
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.zero,
+                  alignment: Alignment.bottomLeft,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)
+                  )
+                ),
+                child: Ink(            
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(colors: [Colors.blue, Colors.green]),
+                    borderRadius: BorderRadius.circular(20)
+                  ),
+                  child: Container(
+                    width: 335,
+                    height: 56,
+                    alignment: Alignment.center,
+                    child: Text(
+                      'Seguinte',
+                      //btnSeguinte.tituloBotao,
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ),
+                )
+              )
+            ],
+          ),
+        )
         ]
       ),     
       ]
