@@ -14,6 +14,8 @@ class _CadastroOngState extends State<CadastroOng> {
   bool isChecked1 = true;
   bool isChecked2 = false;
   String password = '';
+  String email = '';
+  String validarPassword = '';
 
   final _formKey = GlobalKey<FormState>();
 
@@ -43,9 +45,16 @@ class _CadastroOngState extends State<CadastroOng> {
                 validator: (value){
                   RegExp regex = new RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
                   if (!regex.hasMatch(value!)){
+                    print("ENTREI AQUI");
                     return 'Email inválido';
                   }
-                  return null;
+                  else{ 
+                    return null;
+                  }
+                },
+                onChanged: (value){
+                  print(email);
+                  email = value;
                 },
                 style:
                     new TextStyle(fontSize: 14.0, color: Color(0xFFbdc6cf)),
@@ -110,12 +119,14 @@ class _CadastroOngState extends State<CadastroOng> {
                 ),
                 obscureText: _showPassword1 == false ? true : false,
                 validator: (value){
+                  print(value);
                   if(value!.length < 6){
                     return 'A senha precisa ter 6 ou mais caracteres';
                   }
                   return null;
                 },
                 onChanged: (value){
+                  print(value);
                   password = value;
                 }
               )
@@ -171,7 +182,11 @@ class _CadastroOngState extends State<CadastroOng> {
                   else{
                     return 'Senhas não dão match';
                   }
-                }
+                },
+                onChanged: (value){
+                  print(value);
+                  validarPassword = value;
+                },
               )
             ),
           ),
@@ -185,6 +200,7 @@ class _CadastroOngState extends State<CadastroOng> {
                     fillColor: MaterialStateProperty.resolveWith(getColor),
                     value: isChecked1,
                     onChanged: (bool? value) {
+                    print(isChecked1);  
                     setState(() {
                       isChecked1 = value!;
                       isChecked2 = !isChecked2;
@@ -227,7 +243,9 @@ class _CadastroOngState extends State<CadastroOng> {
                     fillColor: MaterialStateProperty.resolveWith(getColor),
                     value: isChecked2,
                     onChanged: (bool? value) {
+                      print(isChecked2);
                     setState(() {
+                      
                       isChecked2 = value!;
                       isChecked1 = !isChecked1;
                     });
@@ -264,8 +282,16 @@ class _CadastroOngState extends State<CadastroOng> {
             child: Stack(
               children: <Widget>[
                 ElevatedButton(onPressed: (){
-                  Navigator.of(context).push(MaterialPageRoute(
+                  RegExp regex = new RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');  
+                  if(!regex.hasMatch(email) || password.length < 6 || validarPassword != password){
+                    print(password.length);
+                    print("Login inválido");
+                  }
+                  else{
+                    Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => DonorCadastroOng02()));
+                  }
+
                 },
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.zero,
