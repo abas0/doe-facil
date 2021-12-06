@@ -1,3 +1,4 @@
+import 'package:doe_facil/screens/cadastro-ong/donor_cadastro-ong_screen.dart';
 import 'package:flutter/material.dart';
 
 class CadastroOng extends StatefulWidget {
@@ -13,6 +14,11 @@ class _CadastroOngState extends State<CadastroOng> {
   bool isChecked1 = true;
   bool isChecked2 = false;
   String password = '';
+  String email = '';
+  String validarPassword = '';
+
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     Color getColor(Set<MaterialState> states) {
@@ -31,17 +37,24 @@ class _CadastroOngState extends State<CadastroOng> {
             child: new Directionality(
 
               textDirection: TextDirection.ltr,
-              child: new TextField(
+              child: new TextFormField(
                 controller: null,
                 autofocus: false,
                 keyboardType: TextInputType.emailAddress,
                 autofillHints: [AutofillHints.email],
-                onChanged: (value) {
-                RegExp regex = new RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
-                if (!regex.hasMatch(value))
-                  print('Insira um e-mail válido');
-                else
-                  print('Email valido');
+                validator: (value){
+                  RegExp regex = new RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
+                  if (!regex.hasMatch(value!)){
+                    print("ENTREI AQUI");
+                    return 'Email inválido';
+                  }
+                  else{ 
+                    return null;
+                  }
+                },
+                onChanged: (value){
+                  print(email);
+                  email = value;
                 },
                 style:
                     new TextStyle(fontSize: 14.0, color: Color(0xFFbdc6cf)),
@@ -75,7 +88,7 @@ class _CadastroOngState extends State<CadastroOng> {
             child: new Directionality(
 
               textDirection: TextDirection.ltr,
-              child: new TextField(
+              child: new TextFormField(
                 controller: null,
                 autofocus: false,
 
@@ -105,7 +118,15 @@ class _CadastroOngState extends State<CadastroOng> {
                   ), 
                 ),
                 obscureText: _showPassword1 == false ? true : false,
+                validator: (value){
+                  print(value);
+                  if(value!.length < 6){
+                    return 'A senha precisa ter 6 ou mais caracteres';
+                  }
+                  return null;
+                },
                 onChanged: (value){
+                  print(value);
                   password = value;
                 }
               )
@@ -123,7 +144,7 @@ class _CadastroOngState extends State<CadastroOng> {
             child: new Directionality(
 
               textDirection: TextDirection.ltr,
-              child: new TextField(
+              child: new TextFormField(
                 controller: null,
                 autofocus: false,
 
@@ -153,15 +174,19 @@ class _CadastroOngState extends State<CadastroOng> {
                   ), 
                 ),
                 obscureText: _showPassword2 == false ? true : false,
-                onChanged: (value){
+                validator: (value){
                   if(value == password)
                   {
-                    print('Senhas dão match!');
+                    return 'Senhas dão match!';
                   }
                   else{
-                    print('Senhas não dão match');
+                    return 'Senhas não dão match';
                   }
-                }
+                },
+                onChanged: (value){
+                  print(value);
+                  validarPassword = value;
+                },
               )
             ),
           ),
@@ -175,6 +200,7 @@ class _CadastroOngState extends State<CadastroOng> {
                     fillColor: MaterialStateProperty.resolveWith(getColor),
                     value: isChecked1,
                     onChanged: (bool? value) {
+                    print(isChecked1);  
                     setState(() {
                       isChecked1 = value!;
                       isChecked2 = !isChecked2;
@@ -217,7 +243,9 @@ class _CadastroOngState extends State<CadastroOng> {
                     fillColor: MaterialStateProperty.resolveWith(getColor),
                     value: isChecked2,
                     onChanged: (bool? value) {
+                      print(isChecked2);
                     setState(() {
+                      
                       isChecked2 = value!;
                       isChecked1 = !isChecked1;
                     });
@@ -249,7 +277,58 @@ class _CadastroOngState extends State<CadastroOng> {
               )
             ),
           ),
+        Container(
+          padding: EdgeInsets.only(bottom: 100, top: 350, left: 40, right: 40),
+            child: Stack(
+              children: <Widget>[
+                ElevatedButton(onPressed: (){
+                  RegExp regex = new RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');  
+                  if(!regex.hasMatch(email) || password.length < 6 || validarPassword != password){
+                    print(password.length);
+                    print("Login inválido");
+                  }
+                  else{
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => DonorCadastroOng02()));
+                  }
+
+                },
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.zero,
+                  alignment: Alignment.bottomLeft,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)
+                  )
+                ),
+                child: Ink(            
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(colors: [Colors.blue, Colors.green]),
+                    borderRadius: BorderRadius.circular(20)
+                  ),
+                  child: Container(
+                    width: 335,
+                    height: 56,
+                    alignment: Alignment.center,
+                    child: Text(
+                      //btnSeguinte.tituloBotao,
+                      'Seguinte',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ),
+                )
+              )
+            ],
+          ),
+        )
         ]
     );          
   }
 }
+
+// void _saveUser(LoginModel user) async {
+//     SharedPreferences prefs = await SharedPreferences.getInstance();
+//     prefs.setString(
+//       PreferencesKeys.activeUser,
+//       json.encode(user.toJson()),
+//     );
+//   }

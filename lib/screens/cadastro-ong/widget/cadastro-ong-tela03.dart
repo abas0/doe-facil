@@ -1,3 +1,4 @@
+import 'package:doe_facil/screens/obrigado-cadastro/obrigado-cadastro_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -251,7 +252,42 @@ class _CadastroOng03State extends State<CadastroOng03> {
                 //inputFormatters: [agency], 
               )
             ),
-            )
+            ),
+            Container(
+          padding: EdgeInsets.only(bottom: 40, top: 20, left: 40, right: 40),
+            child: Stack(
+              children: <Widget>[
+                ElevatedButton(onPressed: (){
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => ObrigadoCadastro()));
+                },
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.zero,
+                  alignment: Alignment.bottomLeft,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)
+                  )
+                ),
+                child: Ink(            
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(colors: [Colors.blue, Colors.green]),
+                    borderRadius: BorderRadius.circular(20)
+                  ),
+                  child: Container(
+                    width: 335,
+                    height: 56,
+                    alignment: Alignment.center,
+                    child: Text(
+                      'Cadastrar',
+                      //btnSeguinte.tituloBotao,
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ),
+                )
+              )
+            ],
+          ),
+        )
           ]
         )
       ],
